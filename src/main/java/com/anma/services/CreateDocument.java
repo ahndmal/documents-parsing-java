@@ -24,18 +24,18 @@ public class CreateDocument {
 
         XWPFRun titleRun = title.createRun();
 
-        titleRun.setText("Build Your REST API with Spring");
-        titleRun.setColor("009933");
+        titleRun.setText("This is created title");
+//        titleRun.setColor("009933");
         titleRun.setBold(true);
-        titleRun.setFontFamily("Courier");
+//        titleRun.setFontFamily("Courier");
         titleRun.setFontSize(20);
 
         XWPFParagraph subTitle = document.createParagraph();
         subTitle.setAlignment(ParagraphAlignment.CENTER);
 
         XWPFRun subTitleRun = subTitle.createRun();
-        subTitleRun.setText("from HTTP fundamentals to API Mastery");
-        subTitleRun.setColor("00CC44");
+        subTitleRun.setText("This is sub-heading!");
+//        subTitleRun.setColor("00CC44");
         subTitleRun.setFontFamily("Courier");
         subTitleRun.setFontSize(16);
         subTitleRun.setTextPosition(20);
