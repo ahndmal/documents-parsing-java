@@ -4,12 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.anma.test</groupId>
-    <artifactId>word-processor-1</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.anma.docs.parsing</groupId>
+    <artifactId>docs-parsing-1</artifactId>
+    <version>1.0.1</version>
 
     <dependencies>
-
 
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -21,6 +20,18 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
             <version>2.9.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>1.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers</artifactId>
+            <version>1.22</version>
         </dependency>
 
     </dependencies>
