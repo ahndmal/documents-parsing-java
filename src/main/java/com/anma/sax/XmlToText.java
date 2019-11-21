@@ -1,4 +1,4 @@
-package com.anma.services;
+package com.anma.sax;
 
 import jdk.internal.org.xml.sax.InputSource;
 import org.w3c.dom.Document;
@@ -13,8 +13,8 @@ public class XmlToText {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
-        InputSource is = new InputSource(new StringReader(xml));
+        InputSource inputSource = new InputSource(new StringReader(xml));
 
-        return builder.parse(is.getEncoding());                                                                 // TODO Change
+        return builder.parse(inputSource.getEncoding());                                                                 // TODO Change
     }
 }
