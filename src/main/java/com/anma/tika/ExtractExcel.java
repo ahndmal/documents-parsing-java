@@ -1,4 +1,4 @@
-package com.anma.tika.xml;
+package com.anma.tika;
 
 import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
@@ -16,21 +16,24 @@ import java.io.*;
 
 public class ExtractExcel {
 
-    public static void main(String[] args) throws IOException, TikaException, SAXException {
+    public static void main(final String[] args) throws IOException, TikaException, SAXException {
 
-//        Parser parser = new AutoDetectParser();
-        
+        //detecting the file type
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
         FileInputStream inputstream = new FileInputStream(new File("src/resources/excel_1.xlsx"));
         ParseContext pcontext = new ParseContext();
 
-        OOXMLParser msofficeparser = new OOXMLParser ();
+        //OOXml parser
+        OOXMLParser  msofficeparser = new OOXMLParser ();
         msofficeparser.parse(inputstream, handler, metadata,pcontext);
+        System.out.println("Contents of the document:" + handler.toString());
+        System.out.println("Metadata of the document:");
+        String[] metadataNames = metadata.names();
 
-        System.out.println(handler.toString());
-
-
+        for(String name : metadataNames) {
+            System.out.println(name + ": " + metadata.get(name));
+        }
     }
 
 //     static String extractContentUsingParser(InputStream stream) throws IOException, TikaException, SAXException {

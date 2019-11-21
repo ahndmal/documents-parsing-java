@@ -1,4 +1,4 @@
-package com.anma.tika.xml;
+package com.anma.tika;
 
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
