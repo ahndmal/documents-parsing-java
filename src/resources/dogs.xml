@@ -8,4 +8,8 @@
         <name>Pirat</name>
         <age>8</age>
     </dog>
+    <dog>
+        <name>Sima</name>
+        <age>8</age>
+    </dog>
 </dogs>
