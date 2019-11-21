@@ -53,18 +53,12 @@ public class PoiExcel {
             for(Cell cell: row) {
 
                 String cellValue = dataFormatter.formatCellValue(cell);
-                if (cellValue.equals("First Name")) {
-                    person.setFirstName(cellValue);
-                    objectsMap.put("firstName", cellValue);
+
+                if (cellValue.equals("First Name")
+                        || cellValue.equals("Last Name")
+                        || cellValue.equals("Age")) { continue;
                 }
-                if (cellValue.equals("Last Name")) {
-                    person.setLastName(cellValue);
-                    objectsMap.put("lastName", cellValue);
-                }
-                if (cellValue.equals("Age")) {
-                    person.setAge(Integer.parseInt(cellValue));
-                    objectsMap.put("age", cellValue);
-                }
+                person.setFirstName(cellValue);
 
                 System.out.print(cellValue + "\t");
             }
