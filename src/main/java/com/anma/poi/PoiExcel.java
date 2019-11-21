@@ -1,15 +1,17 @@
 package com.anma.poi;
 
+import com.anma.models.Person;
+import com.anma.mongo.DBConnector;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 public class PoiExcel {
 
@@ -34,6 +36,40 @@ public class PoiExcel {
 
         for(Sheet sheet: workbook) {
             System.out.println("=> " + sheet.getSheetName());
+        }
+
+        Sheet sheet = workbook.getSheetAt(0);
+
+        DataFormatter dataFormatter = new DataFormatter();
+
+        DBConnector dbConnector = new DBConnector();
+
+        Map<String, String> objectsMap = new HashMap<>();
+
+        for (Row row : sheet) {
+
+            Person person = new Person();
+
+            for(Cell cell: row) {
+
+                String cellValue = dataFormatter.formatCellValue(cell);
+                if (cellValue.equals("First Name")) {
+                    person.setFirstName(cellValue);
+                    objectsMap.put("firstName", cellValue);
+                }
+                if (cellValue.equals("Last Name")) {
+                    person.setLastName(cellValue);
+                    objectsMap.put("lastName", cellValue);
+                }
+                if (cellValue.equals("Age")) {
+                    person.setAge(Integer.parseInt(cellValue));
+                    objectsMap.put("age", cellValue);
+                }
+
+                System.out.print(cellValue + "\t");
+            }
+            dbConnector.addObject(objectsMap, "persons", "persons");
+            System.out.println();
         }
 
 
