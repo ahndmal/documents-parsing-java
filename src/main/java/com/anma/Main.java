@@ -12,9 +12,6 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class Main {
 
-    public Main() throws UnknownHostException {
-    }
-
     public static void main(String[] args) throws UnknownHostException {
 
         DbConnector connector = new DbConnector("persons","persons");
@@ -22,8 +19,18 @@ public class Main {
         FindIterable<Document> documents = connector.getCollection().find();
 
         for (Document document : documents) {
-            System.out.println(document.toJson());
+            System.out.println("Document==" + document.toJson());
         }
+
+//        MongoCursor<Document> cursor = collection.find().iterator();
+//        try {
+//            while (cursor.hasNext()) {
+//                System.out.println(cursor.next().toJson());
+//            }
+//        } finally {
+//            cursor.close();
+//        }
+
         System.out.println(connector.getCollection().find().first().toJson());
 
         Document document = connector.getCollection().find(eq("firstName", "Ignat")).first();

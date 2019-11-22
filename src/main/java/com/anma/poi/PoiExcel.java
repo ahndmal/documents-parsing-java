@@ -22,8 +22,6 @@ public class PoiExcel {
 
         Workbook workbook = WorkbookFactory.create(new File(FILE_NAME));
 
-        System.out.println("Workbook has " + workbook.getNumberOfSheets() + " Sheets : ");
-
 //        Iterator<Sheet> sheetIterator = workbook.sheetIterator();
 //
 //        while (sheetIterator.hasNext()) {
@@ -31,9 +29,9 @@ public class PoiExcel {
 //            System.out.println("=> " + sheet.getSheetName());
 //        }
 
-        for(Sheet sheet: workbook) {
-            System.out.println("=> " + sheet.getSheetName());
-        }
+//        for(Sheet sheet: workbook) {
+//            System.out.println("=> " + sheet.getSheetName());
+//        }
 
         Sheet sheet = workbook.getSheetAt(0);
 
@@ -43,25 +41,31 @@ public class PoiExcel {
 
         Map<String, String> objectsMap = new HashMap<>();
 
-        for (Row row : sheet) {
+        Row firstRow = sheet.getRow(0);
 
-            Person person = new Person();
-
-            for(Cell cell: row) {
-
-                String cellValue = dataFormatter.formatCellValue(cell);
-
-                if (cellValue.equals("First Name")
-                        || cellValue.equals("Last Name")
-                        || cellValue.equals("Age")) { continue;
-                }
-                person.setFirstName(cellValue);
-
-                System.out.print(cellValue + "\t");
-            }
-            dbConnectorOld.addObject(objectsMap, "persons", "persons");
-            System.out.println();
+        for (Cell cell: firstRow) {
+            System.out.println(cell);
         }
+
+//        for (Row row : sheet) {
+//
+//            Person person = new Person();
+//
+//            for(Cell cell: row) {
+//
+//                String cellValue = dataFormatter.formatCellValue(cell);
+//
+//                if (cellValue.equals("First Name")
+//                        || cellValue.equals("Last Name")
+//                        || cellValue.equals("Age")) { continue;
+//                }
+//                person.setFirstName(cellValue);
+//
+//                System.out.print(cellValue + "\t");
+//            }
+////            dbConnectorOld.addObject(objectsMap, "persons", "persons");
+//            System.out.println();
+//        }
 
 
     }
