@@ -1,21 +1,18 @@
 package com.anma.poi;
 
 import com.anma.models.Person;
-import com.anma.mongo.DBConnector;
+import com.anma.mongo.DBConnectorOld;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class PoiExcel {
 
-    private final static String FILE_NAME = "./src/resources/excel-3.xlsx";
+    private final static String FILE_NAME = "./src/resources/persons-excel.xlsx";
 
     public static void main(String[] args) throws IOException, InvalidFormatException {
 
@@ -42,7 +39,7 @@ public class PoiExcel {
 
         DataFormatter dataFormatter = new DataFormatter();
 
-        DBConnector dbConnector = new DBConnector();
+        DBConnectorOld dbConnectorOld = new DBConnectorOld();
 
         Map<String, String> objectsMap = new HashMap<>();
 
@@ -62,7 +59,7 @@ public class PoiExcel {
 
                 System.out.print(cellValue + "\t");
             }
-            dbConnector.addObject(objectsMap, "persons", "persons");
+            dbConnectorOld.addObject(objectsMap, "persons", "persons");
             System.out.println();
         }
 
