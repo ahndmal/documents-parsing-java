@@ -22,6 +22,14 @@ public class DbConnector {
         this.collection = database.getCollection(coll);
     }
 
+    public void addPerson(String fName, String lname, String age) {
+        Document document = new Document().append("First Name", fName)
+                .append("Last Name", lname)
+                .append("Age", age);
+        getCollection().insertOne(document);
+
+    }
+
 
     public MongoClient getMongoClient() {
         return mongoClient;
