@@ -3,9 +3,9 @@ package com.anma.xml.db.model;
 public class Book {
 
     private String title;
-    private String author;
+    private Author author;
 
-    public Book(String title, String author) {
+    public Book(String title, Author author) {
         this.title = title;
         this.author = author;
     }
@@ -18,11 +18,11 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 }

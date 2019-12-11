@@ -12,7 +12,9 @@ public class XmlToText {
     public static Document loadXMLFromString(String xml) throws Exception {
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
         DocumentBuilder builder = factory.newDocumentBuilder();
+
         InputSource inputSource = new InputSource(new StringReader(xml));
 
         return builder.parse(inputSource.getEncoding());                                                                 // TODO Change
