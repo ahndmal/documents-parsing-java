@@ -1,5 +1,8 @@
-package com.anma.json;
+package com.anma.json.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency {
 
     private String date;

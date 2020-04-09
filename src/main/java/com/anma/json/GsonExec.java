@@ -1,5 +1,7 @@
 package com.anma.json;
 
+import com.anma.json.entity.Cat;
+import com.anma.json.entity.Currency;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
@@ -9,7 +11,6 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
 
 public class GsonExec {
 

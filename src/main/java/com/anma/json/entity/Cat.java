@@ -1,11 +1,13 @@
-package com.anma.json;
+package com.anma.json.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
 
 public class Cat {
 
     @SerializedName("name")
     private String name;
+    @JsonProperty
     private int age;
 
     public Cat () {}
