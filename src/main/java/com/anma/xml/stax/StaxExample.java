@@ -24,7 +24,7 @@ public class StaxExample {
 
                 } else if (xmlr.isEndElement()) {
                     System.out.println("/" + xmlr.getLocalName());
-                    
+
                 } else if (xmlr.hasText() && xmlr.getText().trim().length() > 0) {
                     System.out.println("   " + xmlr.getText());
                 }

@@ -11,7 +11,7 @@ public class SaxExample {
 
     public static void main(String args[]) {
         // Имя файла
-        final String fileName = "phonebook.xml";
+        final String fileName = "D:\\Programming\\java\\projects\\documents-parsing\\src\\resources\\xml\\phonebook.xml";
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
