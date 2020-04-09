@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalog>
+    <book>
+        <author>vasyl</author>
+        <price>3</price>
+        <title>Title</title>
+    </book>
+    <book>
+        <author>Ignat</author>
+        <price>6</price>
+        <title>Title2</title>
+    </book>
+</catalog>
