@@ -44,6 +44,20 @@ public class GsonExec {
 
             Files.write(Paths.get(newFile), gsonString.getBytes(), StandardOpenOption.CREATE);
 
+            Cat[] cats1 =  gson.fromJson("[\n" +
+                    "  {\n" +
+                    "    \"name\": \"Murzik\",\n" +
+                    "    \"age\": 7\n" +
+                    "  },\n" +
+                    "  {\n" +
+                    "    \"name\": \"Pukh\",\n" +
+                    "    \"age\": 8\n" +
+                    "  }\n" +
+                    "]", Cat[].class);
+            for (Cat cat : cats1) {
+                System.out.println(cat.getName());
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
