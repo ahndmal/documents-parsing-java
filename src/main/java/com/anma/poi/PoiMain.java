@@ -14,6 +14,7 @@ public class PoiMain {
         try {
 
             docCreationService.createDocument("Some body");
+
             System.out.println("Document created!");
 
         } catch (URISyntaxException e) {

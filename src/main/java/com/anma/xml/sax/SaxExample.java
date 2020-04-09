@@ -1,4 +1,4 @@
-package com.anma.xml;
+package com.anma.xml.sax;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

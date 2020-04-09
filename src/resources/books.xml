@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <book>
+        <author>Vasyl</author>
+        <title>Title1</title>
+        <price currency="USD">40</price>
+    </book>
+    <book>
+        <author>Vasyl</author>
+        <title>Title1</title>
+        <price currency="UAH">345</price>
+    </book>
+</catalog>

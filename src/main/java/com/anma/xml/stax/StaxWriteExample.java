@@ -1,4 +1,4 @@
-package com.anma.xml;
+package com.anma.xml.stax;
 
 import java.io.FileWriter;
 import java.io.IOException;

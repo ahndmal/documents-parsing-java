@@ -11,7 +11,7 @@ import org.xml.sax.SAXException;
 
 public class DomExample {
 
-    private static String XML_NAME ="BookCatalogue.xml";
+    private static String XML_NAME ="D:\\Programming\\java\\projects\\documents-parsing\\src\\resources\\Books.xml";
 
     public static void main(String[] args) {
 
