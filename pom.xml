@@ -75,7 +75,7 @@
         <dependency>
             <groupId>net.sf.cssbox</groupId>
             <artifactId>pdf2dom</artifactId>
-            <version>1.6</version>
+            <version>1.8</version>
         </dependency>
 
 
