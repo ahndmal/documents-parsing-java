@@ -14,11 +14,9 @@ class ZipListFilesTest {
     void listZipEntries() throws IOException {
 
         try (ZipFile zip = new ZipFile("path")) {
-
             for (ZipEntry entry : Collections.list(zip.entries())) {
                 System.out.println(entry.getName());
             }
-
         }
     }
 }
