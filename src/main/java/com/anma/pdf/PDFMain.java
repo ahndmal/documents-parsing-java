@@ -6,9 +6,7 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.io.RandomAccessBuffer;
 import org.apache.pdfbox.io.RandomAccessFile;
-import org.apache.pdfbox.io.RandomAccessRead;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -20,21 +18,21 @@ import org.fit.pdfdom.PDFDomTree;
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class PDFMain {
+    private static final String PDF_PATH = "/home/andrii/Documents/pdf/microbiology-guide-to-interpreting-mic-nl.pdf";
+    private static final String HTML_FILE = "";
 
     public static void main(String[] args) throws IOException, ParserConfigurationException, DocumentException {
 
-//        pdfToHTML("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\pdf\\Design_test_import.pdf");
-//        htmlToPDF("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\test-1.html");
-        PDFtoText("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\pdf\\Design_test_import.pdf");
+//        pdfToHTML(PDF_PATH);
+//        htmlToPDF("HTML_FILE");
+        pdFtoText(PDF_PATH);
 
     }
 
     private static void pdfToHTML(String filename) throws IOException, ParserConfigurationException {
-
         PDDocument pdf = PDDocument.load(new File(filename));
         Writer output = new PrintWriter("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\pdf\\out\\from_pdf.html", "utf-8");
         new PDFDomTree().writeText(pdf, output);
@@ -43,10 +41,10 @@ public class PDFMain {
     }
 
     private static void htmlToPDF(String filename) throws IOException, DocumentException {
-
         Document document = new Document();
 
-        PdfWriter writer = PdfWriter.getInstance(document,
+        PdfWriter writer = PdfWriter.getInstance(
+                document,
                 new FileOutputStream("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\pdf\\from_html.pdf"));
         document.open();
         XMLWorkerHelper.getInstance().parseXHtml(writer, document,
@@ -80,7 +78,7 @@ public class PDFMain {
         writer.close();
     }
 
-    private static void PDFtoText(String filename) throws IOException {
+    private static void pdFtoText(String filename) throws IOException {
         File file = new File(filename);
         String parsedText;
         PDFParser parser = new PDFParser(new RandomAccessFile(file, "r"));
@@ -91,7 +89,7 @@ public class PDFMain {
         PDDocument pdDoc = new PDDocument(cosDoc);
         parsedText = pdfStripper.getText(pdDoc);
 
-        PrintWriter pw = new PrintWriter("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\txt\\from_pdf.txt");
+        PrintWriter pw = new PrintWriter("./from_pdf.txt");
         pw.print(parsedText);
         pw.close();
 

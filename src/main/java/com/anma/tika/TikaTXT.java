@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TikaTXT {
-
     public static void main(final String[] args) throws IOException, SAXException, TikaException {
 
         //detecting the file type

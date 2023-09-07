@@ -22,6 +22,7 @@ public class TikaHTML {
         ParseContext pcontext = new ParseContext();
 
         //Html parser
+
         HtmlParser htmlparser = new HtmlParser();
         htmlparser.parse(inputstream, handler, metadata,pcontext);
         System.out.println("Contents of the document:" + handler.toString());

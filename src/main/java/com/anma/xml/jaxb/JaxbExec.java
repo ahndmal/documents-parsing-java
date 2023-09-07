@@ -1,7 +1,5 @@
 package com.anma.xml.jaxb;
 
-import org.checkerframework.checker.units.qual.C;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
