@@ -15,7 +15,7 @@ import java.io.InputStream;
 
 public class ExtractXml {
 
-    public static String input = "AAAAAA.docx";
+    private static final String INPUT = "AAAAAA.docx";
 
     public static void main(String[] args) throws IOException, TikaException, SAXException {
 

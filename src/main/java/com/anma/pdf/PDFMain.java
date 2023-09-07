@@ -81,6 +81,7 @@ public class PDFMain {
     private static void pdFtoText(String filename) throws IOException {
         File file = new File(filename);
         String parsedText;
+
         PDFParser parser = new PDFParser(new RandomAccessFile(file, "r"));
         parser.parse();
 

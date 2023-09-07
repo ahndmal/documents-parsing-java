@@ -37,9 +37,6 @@ public class ExtractExcel {
     }
 
 //     static String extractContentUsingParser(InputStream stream) throws IOException, TikaException, SAXException {
-//
-//
-//
 //        return handler.toString();
 //    }
 }
