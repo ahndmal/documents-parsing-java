@@ -11,6 +11,7 @@ import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.image.ImageParser;
 import org.apache.tika.sax.BodyContentHandler;
+import org.apache.tika.sax.ToXMLContentHandler;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,7 @@ public class TIkaCoreTests {
         AutoDetectParser parser = new AutoDetectParser();
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
-        try (InputStream stream = TIkaCoreTests.class.getResourceAsStream("test.doc")) {
+        try (InputStream stream = TikaInputStream.get(Path.of("src/resources/doc/file-sample_1MB.odt"))) {
             parser.parse(stream, handler, metadata);
             var res = handler.toString();
             System.out.println(res);
@@ -67,6 +68,20 @@ public class TIkaCoreTests {
 
         parser.parse(stream, handler, new Metadata(), new ParseContext());
 
+        System.out.println(handler.toString());
+
         stream.close();
+    }
+
+    @Test
+    void  parseDocToHTML() throws IOException, SAXException, TikaException {
+        ContentHandler handler = new ToXMLContentHandler();
+
+        AutoDetectParser parser = new AutoDetectParser();
+        Metadata metadata = new Metadata();
+        try (InputStream stream = TikaInputStream.get(Path.of("src/resources/doc/file-sample_1MB.odt"))) {
+            parser.parse(stream, handler, metadata);
+            System.out.println(handler.toString());
+        }
     }
 }
