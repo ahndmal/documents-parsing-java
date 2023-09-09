@@ -1,0 +1,13 @@
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+<mime-type type="application/pdf">
+<alias type="application/x-pdf"/>
+<acronym>PDF</acronym>
+<expanded-acronym>
+Portable Document Format
+</expanded-acronym>
+<comment xml:lang="en">
+PDF document
+</comment>
+</mime-type>
+
+</mime-info>
