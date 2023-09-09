@@ -1,0 +1,329 @@
+Historically, in vitro susceptibility testing was routinely performed by disk diffusion (Kirby-Bauer) method. The size of the growth-
+free zone determined whether the bacterium was considered to be susceptible, resistant, or intermediate to a particular antibiotic.
+Although a useful guide for selecting an effective antibiotic, Kirby-Bauer testing could not tell the clinician the exact concentration 
+of antibiotic needed to achieve a therapeutic result. The alternative automated quantitative method of susceptibility testing 
+with the Vitek platform used in our microbiology laboratories supports rapid and accurate quantitative antibiotic susceptibility 
+test (AST) reporting, including minimum inhibitory concentration (MIC). The MIC provides the ability to precisely determine the 
+concentration of antibiotic required to inhibit growth of a pathogen.
+Your IDEXX microbiology results will show the identity of the organism and the appropriate antibiotic sensitivity pattern against 
+each organism. Most antibiograms will include MICs in order to determine the most effective antibiotic that will result in 
+effective treatment.
+What is an MIC?
+The MIC, or minimum inhibitory concentration, is the lowest 
+concentration (in μg/mL) of an antibiotic that inhibits the growth 
+of a given strain of bacteria. This is a strain dependent value 
+that will greatly differ between different bacterial species and 
+even within one species depending on the individual strain 
+isolated in the respective clinical case, even for the same 
+antibiotic examined. At IDEXX, a commercial automated 
+system is used to determine MICs. A quantitative method of 
+susceptibility testing, an MIC helps determine which class of 
+antibiotic is most effective. This information can lead to an 
+appropriate choice of an antibiotic that will increase chances 
+of treatment success and help in the fight to slow antibiotic 
+resistance.
+The MIC is reported as a numerical value. Values above or 
+below the range of measurement are indicated with “<=” (in 
+case of below the range, in the susceptible category) or with 
+“>=” (in case of above the range, in the resistant category).
+How is the MIC reported?
+Next to each antibiotic is the susceptibility interpretation: 
+S (sensitive), I (intermediate), or R (resistant) are the three 
+interpretative categories, listed in the first result column of the 
+susceptibility report. The respective category is followed by 
+the MIC in μg/mL in the next result column of the susceptibility 
+report. “Sensitive” implies that the organism is inhibited by the 
+serum concentration of the drug that is achieved using the 
+usual dosage; “intermediate” implies that the organisms are 
+inhibited only when higher concentrations than with the usually 
+recommended dosages are achievable; and “resistant” implies 
+that the organisms are resistant to the usually achievable 
+serum drug levels. These interpretive standards have been 
+established by the Clinical and Laboratory Standards Institute 
+(CLSI). The interpretative categories are evaluated according 
+to the so-called breakpoints for each antibiotic as listed in the 
+current versions of the CLSI documents.
+Microbiology guide to interpreting 
+minimum inhibitory concentration (MIC)
+This guide provides a detailed explanation of the following concepts which are important in 
+implementing the MIC:
+•  The MIC number is the lowest concentration (in μg/mL) of an antibiotic that inhibits the growth of a given strain of bacteria. 
+(See the section “What is an MIC?”)
+• An MIC number for one antibiotic CANNOT be compared to the MIC number for another antibiotic. 
+(See the “How are MICs used?” section.)
+• The choice of antibiotic should not be based on the MIC alone but on several other criteria. 
+(See the “antibiotic selection” section).
+• The attached tables will aid in MIC interpretation and antibiotic selection.
+Example for reporting AST result
+Bacteriologic examination, culture aerobic: 
+• Staphylococcus intermedius group, moderate count (1) 
+• Escherichia coli, high count (2)
+ 
+Antibiogram for strain no. (1) (2) Remark
+SIR MIC SIR MIC
+Penicillin R >=0.5
+Ampicillin R S <=2 Also valid for Amoxicillin
+Amoxicillin R S Also valid for Ampicillin
+Amoxicillin/clavulanic acid S <=2 S <=2
+Cefalexin S S <=4
+Cefazolin S
+Cefalotin S <=2 I 4
+Cefovecin S <=0.5 S <=0,5
+Ceftiofur S <=0.5 S <=1
+Cefpodoxim S S <=0,25
+Cefoperazone S S
+Cefquinome S S
+Oxacillin S <=0.25 S    
+Cloxacillin S
+Gentamicin S <=0.5 S <=1
+Kanamycin S <=4 Also valid for Neomycin
+Erythromycin S 0.5
+Tetracycline S <=1 S <=1 Stands for all tetracyclines
+Doxycycline S <=0.5 S 1
+Enrofloxacin S <=0.5 S 0,5 Stands for all fluorchinolones
+Marbofloxacin S <=0.5 S <=0,5
+Pradofloxacin S <=0.12 S 0,25
+Nitrofurantoin S <=16 S <=16
+Clindamycin S 0.25
+Lincomycin S
+Sulfamethox./Trim. S <=10 S <=20 Also valid for other sulfonamide/trim. combinations
+Chloramphenicol S 8 S 8 Stands for all phenicoles (e.g. florfenicol)
+Florfenicol S S
+Imipenem S S <=0,25 Strictly verify indication
+Meropenem S S Strictly verify indication
+Amikacin S S <=2 Strictly verify indication
+Tobramycin S S Strictly verify indication
+Azithromycin S Strictly verify indication
+Clarithromycin S Strictly verify indication
+Interpretation key for the antibiogram:
+S = sensitive; active substance normally effective against microorganisms at recommended dosage. 
+I = intermediate; active substance may be effective against microorganism at higher than recommended dose. 
+R = resistant; active substance not effective against microorganism either in recommended or higher dosage due to resistance mechanism.
+Method: automated resistance determination (MIC), according to guidelines of the Clinical and Laboratory Standards Institute (CLSI). MIC values (if available) expressed in µg/ml. 
+SIR results and / or MIC values are not reported if no CLSI interpretation criteria (so-called breakpoints) are available, the growth conditions of the microorganism do not permit 
+measurement with the method used, or determination for the individual isolate was not possible.
+The results are partly obtained by derivation according to international guidelines (information available on request from the laboratory). The antibiogram is compiled according to 
+the microorganisms. An absent SIR result in the antibiogram generally indicates an unsuitable combination of microorganism and active substance. Please also note the information 
+regarding lead substances and cross resistances.
+Please observe application restrictions and contraindications! The choice of antibiotic is the responsibility of the attending veterinarian. The test method refers to systemic effective 
+levels. Testing locally applicable active substances such as fusidic acid and polymyxin B is not possible.
+For more information about the MIC, please visit our website (keyword „MIC“).
+When are MICs not performed?
+MICs are not performed when:
+• The growth requirements of some organisms require the 
+sensitivity testing to be performed by another method.
+• Interpretive criteria are not available from CLSI.
+• Certain antibiotics are not available on our automated 
+system.
+• The drug is known to be clinically ineffective against the 
+organism, regardless of the in vitro results.
+• By design the drug is not active against the microorganism, 
+e.g. Clindamycin is designed for Gram-positive 
+microorganisms only, and therefore not tested against 
+Gram-negative microorganisms (e.g. Pseudomonas sp.)
+• Due to the antibiotic panel in the automated system 
+the antibiotic was not measured, and the result for 
+the interpretative category was achieved by deduction 
+according to international guidelines.
+How are MICs used?
+An antibiotic breakpoint is the dilution where bacteria begin to 
+show resistance. The breakpoint and range of dilutions differ 
+by drug and bacterial species. Tables listing the respective 
+breakpoints are subject to constant re-evaluation by CLSI 
+according to newest scientific data (pharmacological and 
+clinical data). The most current versions are available online 
+(see https://clsi.org/).
+Comparing MICs of different antibiotics is not based solely 
+on the numerical value but on how far the MIC is from the 
+breakpoint, the site of the infection, and other considerations, 
+such as the age, species, and health of the animal. Possible 
+side effects of the drug, frequency, and route of administration 
+are also important factors.
+For example: A strain of Staphylococcus pseudintermedius 
+has an MIC of 0.5 μg/ml for erythromycin and of 0.25 μg/ml for 
+pradofloxacin. Looking at the dilutions for erythromycin, at 0.5 
+μg/ml, this strain of Staphylococcus pseudintermedius is four 
+dilutions away from the breakpoint. For pradofloxacin, the same 
+strain of Staphylococcus pseudintermedius at an MIC of 0.25 
+μg/ml is three dilutions away from the breakpoint. So, based 
+on MICs, this strain of Staphylococcus pseudintermedius 
+is more susceptible to erythromycin than pradofloxacin. 
+For other factors to take into consideration see section 
+“antibiotic selection”.
+Quick guide for MIC interpretation
+See below a simplified approach to use MIC values:
+If the result is: MIC Then the antibiotic is: Further action / remark:
+Sensitive <= (any number) effective at the lowest concentration tested should be effective choice
+Sensitive (any number) effective, but not at the lowest concentration 
+tested
+refer to MIC range to determine where in the range the 
+strain falls and compare this with other choices
+Intermediate (any number)
+may be effective in high dosages or if it 
+concentrates at the site of infection
+refer to reference ranges for achievable antibiotic levels 
+in affected tissues
+Resistant (any number) will be unlikely to reach effective serum levels choose an antibiotic that tests as sensitive
+Resistant >= (any number) unlikely to be effective choose an antibiotic that tests as sensitive
+Our consultants are available to help you interpret test 
+results.
+The introduction of MIC values enables a quantitative result, while 
+the qualitative assessment is expressed as Sensitive, Intermediate 
+or Resistant. This last classification, into effectiveness classes, is 
+of direct clinical relevance to the veterinary practitioner.
+The MIC value is primarily a parameter that is required for 
+the precise evaluation of the laboratory test. It is required to 
+establish the in vitro effectiveness of the antibiotic with respect 
+to the isolate. As has already been mentioned in the example 
+earlier, the MIC values of different agents for clinical use cannot 
+be compared with each other directly. An antibiotic with an MIC 
+MIC (µg/ml) 0.12 0.25 0.5 1 2 4
+Interpretative 
+category
+S S I I R R
+Breakpoint for R
+Pradofloxacin, Staph. pseudintermedius
+MIC (µg/ml) 0.25 0.5 1 2 4 8
+Interpretative 
+category
+S S I I I R
+Breakpoint for R
+Erythromycin, Staph. pseudintermedius
+For example: Erythromycin is 4 dilutions away from its 
+breakpoint while pradofloxacin is only 3 dilutions away from 
+its breakpoint. Therefore, in this case, although the absolute 
+MIC value measured for pradofloxacin (0.25 μg/ml) is lower 
+than the one measured for erythromycin (0.5 μg/ml), the 
+strain is more susceptible to erythromycin.
+In vitro efficacy of pradofloxacin and erythromycin for 
+a Staphylococcus pseudintermedius strain:
+MIC = 0.25 µg/ml 
+3 dilutions below breakpoint
+MIC = 0.5 µg/ml 
+4 dilutions below breakpoint
+value of 0.25 μg/ml can prove less effective than one with an 
+MIC value of 0.5 μg/ml. This may seem illogical, since in the 
+case of the latter agent, double the concentration seems to 
+be required to inhibit microbial growth in vitro. However, when 
+actually used on the patient, pharmacokinetic and clinical 
+parameters also come into play. These factors were taken 
+into account in the establishment of the clinical breakpoint by 
+the CLSI and lead to the clinical classification of each isolate 
+as sensitive, intermediate or resistant to an agent. Thus, an 
+isolate may be graded sensitive to an agent at an equal or 
+even higher MIC, while the same isolate has to be judged 
+resistant to another agent with the same or even a lower MIC. 
+This is one more demonstration that the MIC value or its level 
+is insufficient on its own to permit any clinical pronouncement 
+and, furthermore, has to be assessed individually, depending 
+on agent and pathogen. No conclusion regarding the 
+necessary therapeutic dose can be drawn directly from the 
+MIC value. Only when the pharmacological parameters, such 
+as tissue distribution, attainable concentration in the target 
+tissue, rate of elimination, toxicity thresholds, etc. are precisely 
+known can the MIC value be used for clinical applications. For 
+direct clinical use, the therapeutic interpretation (S, I, or R) is 
+the basis for successful therapy.
+Class-reference antibiotics
+Some antibiotics are used to determine the susceptibility of 
+other antibiotics in the same class. For example, the presence 
+of methicillin-resistant staphylococci (MRS) is tested in the 
+laboratory with oxacillin and / or cefoxitin and not methicillin. 
+The name MRS is used because of convention over years of 
+use in scientific articles and textbooks.
+Antimicrobial 
+agent
+Susceptibility prediction for:
+Cephalexin All first-generation cephalosporins, except cefazolin
+Clindamycin Lincosamides (lincomycin, pirlimycin) (GP only)
+Erythromycin
+Azithromycin and clarithromycin (GP only), 
+macrolides (14), (in part) tylosin (16), spiramycin
+Oxacillin
+Methicillin (MRS) and isoxazolylpenicillines 
+(cloxa-, dicloxacilline)
+Tetracycline Doxycycline, oxytetracycline
+Sulfamethoxazol/
+trimethoprim
+Other potentiated sulfonamides
+Ampicillin Aminopenicillines (e.g. amoxicillin); penicillin (GP)
+Kanamycin Neomycin, framycetin, paromomycin
+Chloramphenicol Phenicoles (florfenicol)
+   (GP = Gram-positive microorganisms )
+And finally: why is sometimes no susceptibility 
+report available at all?
+At IDEXX we follow international guidelines set by the Clinical 
+Laboratory Standards Institute (CLSI) combined with our years 
+of experience in performing susceptibility testing. As such the 
+following is an outline of our antibiotic testing policy:
+• Susceptibilities are not performed on normal flora and 
+non-pathogenic microorganisms.
+• Pathogens with no international interpretative standards 
+will be reported with a recommended list of antibiotics 
+(if available from scientific sources). Examples include 
+Corynebacterium species and Campylobacter species.
+• In case susceptibility testing is not possible (e.g. method 
+no applicable, general or individual growth failure) a 
+recommended list of antibiotics will be reported (if available 
+from scientific sources).
+• Topical agents will not be tested. There are NO international 
+guidelines for laboratory-based susceptibility testing of 
+these agents. Any testing of such may lead to serious 
+misleading results. Examples include agents included in 
+eye and ear preparations.
+• We do not test inappropriate organism/antibiotic 
+combinations, such as Clindamycin against Gram-
+negative organisms or penicillin against E. coli (both 
+examples have intrinsic resistance mechanisms against 
+these antibiotics).
+Customer support services
+IDEXX supports your practice with our customer support, 
+technical support, and medical consulting services teams, 
+including our diagnostic support veterinarians and veterinary 
+specialists.
+If you have questions, please contact Customer Support at:
+ 070 700 7033
+Antibiotic selection
+When selecting an antibiotic, keep in mind that other factors in 
+addition to the MIC are important. The location of the infection 
+is important because lipid-soluble drugs reach higher levels 
+in the tissue than they do in serum. Drugs excreted by the 
+kidney reach much higher bladder levels than serum levels. 
+Also, some drugs are more effective against Gram-negative 
+bacteria than Gram-positive bacteria and vice versa. Species 
+considerations are also important because certain antibiotics 
+are toxic in some species. 
+Therefore, the choice of antibiotic should be based not on the 
+MIC alone but on several other criteria. 
+Factors for selecting the most appropriate agent include:
+• The MIC numerical value
+• The antibiotic’s breakpoint (how far the MIC is from the 
+breakpoint)
+• The site of infection (achievable drug levels at site of 
+infection)
+• Age of patient, animal species, health of animal (known 
+organ disorders, immune status)
+• Mode of action (bacteriostatic / bactericide), spectrum 
+(broad-spectrum versus narrow-spectrum)
+• Pharmacokinetics (volume of distribution, bioavailability, 
+route of elimination)
+• Restrictions in application (antibiotic guidelines according 
+to countries, or restrictions for use in farm animals, 
+restrictions for critically important antibiotics)
+• Safety / contraindications, possible side effects of the 
+drug, toxicity margin
+• Ease of use, frequency and route of administration
+Consider the appropriate criteria in each clinical case 
+when determining the optimum antibiotic.
+For the choice of an antibiotic one has also to take into 
+consideration that different countries have different antibiotic 
+guidelines. Regional recommendations and legal restrictions 
+should also be taken into consideration. Antibiotics considered 
+critically important should only be used with great care and 
+never as first-line drugs.
+The information contained herein is intended to provide general guidance only. As with any diagnosis or treatment, you should use 
+clinical discretion with each patient based on a complete evaluation of the patient, including history, physical presentation and complete 
+laboratory data. With respect to any drug therapy or monitoring program, you should refer to product inserts for a complete description 
+of dosages, indications, interactions and cautions.
+All ®/TM marks are owned by IDEXX Laboratories, Inc. or its affiliates in the United States and/or other countries. The IDEXX Privacy Policy is 
+available at idexx.com. © 2019 IDEXX Laboratories. Inc. All rights reserved · 1906008-0719-NL 
