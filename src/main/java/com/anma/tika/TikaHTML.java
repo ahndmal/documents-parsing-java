@@ -12,21 +12,22 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TikaHTML {
+    public static final String SRC_RESOURCES_TEST_1_HTML = "src/resources/test-1.html";
 
     public static void main(final String[] args) throws IOException, SAXException, TikaException {
-
         //detecting the file type
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
-        FileInputStream inputstream = new FileInputStream(new File("src/resources/test-1.html"));
-        ParseContext pcontext = new ParseContext();
+        FileInputStream inputstream = new FileInputStream(SRC_RESOURCES_TEST_1_HTML);
+        ParseContext context = new ParseContext();
 
         //Html parser
-
         HtmlParser htmlparser = new HtmlParser();
-        htmlparser.parse(inputstream, handler, metadata,pcontext);
+        htmlparser.parse(inputstream, handler, metadata, context);
+
         System.out.println("Contents of the document:" + handler.toString());
         System.out.println("Metadata of the document:");
+
         String[] metadataNames = metadata.names();
 
         for(String name : metadataNames) {

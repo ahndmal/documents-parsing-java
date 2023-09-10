@@ -25,6 +25,9 @@ public class TikaDetectionTests {
 
     @Test
     void detect() throws IOException {
+//        String config = "/org/apache/tika/mime/tika-mimetypes.xml";
+//        Tika tika = new Tika(MimeTypesFactory.create(config));
+
         Tika tika = new Tika();
 
         File file = new File(IMAGE_PATH);
