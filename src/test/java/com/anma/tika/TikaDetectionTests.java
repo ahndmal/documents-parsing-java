@@ -1,5 +1,6 @@
 package com.anma.tika;
 
+import org.apache.tika.Tika;
 import org.apache.tika.config.TikaConfig;
 import org.apache.tika.detect.DefaultDetector;
 import org.apache.tika.detect.Detector;
@@ -20,6 +21,18 @@ import java.nio.file.Path;
 public class TikaDetectionTests {
     File[] myListOfFiles = {new File("src/resources/sample.jpg")};
     final String IMAGE_PATH = "src/resources/sample.jpg";
+
+
+    @Test
+    void detect() throws IOException {
+        Tika tika = new Tika();
+
+        File file = new File(IMAGE_PATH);
+
+        String type = tika.detect(file);
+
+        System.out.println(file + ": " + type);
+    }
 
     @Test
     void detectOne() throws IOException {
@@ -49,7 +62,7 @@ public class TikaDetectionTests {
             System.out.println("File " + file + " is " + mimetype);
         }
 
-        InputStream[] streams = { new FileInputStream("src/resources/sample.jpg") };
+        InputStream[] streams = {new FileInputStream("src/resources/sample.jpg")};
 
         for (InputStream is : streams) {
             Metadata metadata = new Metadata();
