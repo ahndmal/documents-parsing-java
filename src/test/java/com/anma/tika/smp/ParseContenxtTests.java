@@ -22,7 +22,7 @@ public class ParseContenxtTests {
 //        parser.parse(stream, handler, metadata, context);
 
         //  Sometimes you’d rather process the component documents completely separately
-        context.set(Parser.class, new ParserDecorator(parser) {
+        /*context.set(Parser.class, new ParserDecorator(parser) {
             @Override
             public void parse(
                     InputStream stream, ContentHandler handler,
@@ -30,7 +30,7 @@ public class ParseContenxtTests {
                     throws IOException, SAXException, TikaException {
                 // custom processing of the component document
             }
-        });
+        });*/
 //        parser.parse(stream, handler, metadata, context);
     }
 }

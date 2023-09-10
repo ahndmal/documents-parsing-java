@@ -12,22 +12,23 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class TikaTXT {
-    public static void main(final String[] args) throws IOException, SAXException, TikaException {
+    public static final String SRC_RESOURCES_TEST_1_TXT = "src/resources/test-1.txt";
 
+    public static void main(final String[] args) throws IOException, SAXException, TikaException {
         //detecting the file type
         BodyContentHandler handler = new BodyContentHandler();
         Metadata metadata = new Metadata();
-        FileInputStream inputstream = new FileInputStream(new File("src/resources/test-1.txt"));
-        ParseContext pcontext=new ParseContext();
+        FileInputStream inputstream = new FileInputStream(SRC_RESOURCES_TEST_1_TXT);
+        ParseContext pcontext = new ParseContext();
 
         //Text document parser
         TXTParser TexTParser = new TXTParser();
-        TexTParser.parse(inputstream, handler, metadata,pcontext);
+        TexTParser.parse(inputstream, handler, metadata, pcontext);
         System.out.println("Contents of the document:" + handler.toString());
         System.out.println("Metadata of the document:");
         String[] metadataNames = metadata.names();
 
-        for(String name : metadataNames) {
+        for (String name : metadataNames) {
             System.out.println(name + " : " + metadata.get(name));
         }
     }

@@ -19,44 +19,31 @@ import org.xml.sax.SAXException;
 public class TikaAnalysis {
 
 //    public String parseToStringExample() throws IOException, SAXException, TikaException {
-//
 //        Tika tika = new Tika();
 //        try (InputStream stream = ParsingExample.class.getResourceAsStream("test.doc")) {
-//
 //            return tika.parseToString(stream);
 //        }
 //    }
 
     static InputStream getInputStream() throws FileNotFoundException {
-
         InputStream initialStream = new FileInputStream(new File("src/main/resources/tika.docx"));
-
         return initialStream;
-
     }
 
     public static String detectDocTypeUsingDetector(InputStream stream) throws IOException {
-
         Detector detector = new DefaultDetector();
-
         Metadata metadata = new Metadata();
-
         MediaType mediaType = detector.detect(stream, metadata);
-
         return mediaType.toString();
     }
 
     public static String detectDocTypeUsingFacade(InputStream stream) throws IOException {
-
         Tika tika = new Tika();
-
         String mediaType = tika.detect(stream);
-
         return mediaType;
     }
 
     public static String extractContentUsingParser(InputStream stream) throws IOException, TikaException, SAXException {
-
         Parser parser = new AutoDetectParser();
 
         ContentHandler handler = new BodyContentHandler();
@@ -71,7 +58,6 @@ public class TikaAnalysis {
     }
 
     public static String extractContentUsingFacade(InputStream stream) throws IOException, TikaException {
-
         Tika tika = new Tika();
 
         String content = tika.parseToString(stream);

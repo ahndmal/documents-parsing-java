@@ -65,7 +65,7 @@ public class TIkaCoreTests {
     }
 
     @Test
-    void parserCore() throws IOException, TikaException, SAXException {
+    void parserImageCore() throws IOException, TikaException, SAXException {
         Parser parser = new ImageParser();
 
         InputStream stream = Files.newInputStream(Path.of("src/resources/sample.jpg"));
