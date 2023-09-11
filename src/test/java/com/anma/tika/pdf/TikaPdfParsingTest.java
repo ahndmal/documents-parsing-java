@@ -46,15 +46,18 @@ class TikaPdfParsingTest {
             }
 
             @Override
-            public void parseEmbedded(InputStream stream, ContentHandler handler, Metadata metadata, boolean outputHtml) throws IOException {
-                Path outputDir = Path.of(".");
+            public void parseEmbedded(InputStream stream,
+                                      ContentHandler handler,
+                                      Metadata metadata,
+                                      boolean outputHtml) throws IOException {
+                Path outputDir = Path.of("src/resources/images");
                 Files.createDirectories(outputDir);
 
                 System.out.println(">>> metadata");
                 System.out.println(metadata.toString());
 
 //                Path outputPath = new File(outputDir.toString() + "/" + metadata.get(Metadata.RESOURCE_NAME_KEY)).toPath();
-                Path outputPath = new File(outputDir.toString() + "/" + metadata.get("resourceName")).toPath();
+                Path outputPath = Path.of(outputDir + "/" + metadata.get("resourceName"));
                 Files.deleteIfExists(outputPath);
                 Files.copy(stream, outputPath);
             }
