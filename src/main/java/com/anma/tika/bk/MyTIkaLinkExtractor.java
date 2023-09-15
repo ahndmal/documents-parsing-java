@@ -1,7 +1,7 @@
 package com.anma.tika.bk;
 
 public class MyTIkaLinkExtractor {
-    public void startElement(String uri, String local, String name, Attributes attributes) {
+    /*public void startElement(String uri, String local, String name, Attributes attributes) {
         if (XHTML.equals(uri)) {
             if ("a".equals(local)) {
                 LinkBuilder builder = new LinkBuilder("a");
@@ -28,5 +28,5 @@ public class MyTIkaLinkExtractor {
                 links.add(builderStack.removeFirst().getLink());
             }
         }
-    }
+    }*/
 }

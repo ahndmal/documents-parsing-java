@@ -16,11 +16,9 @@ import java.util.List;
 public class RollBackEx {
     public void rollback(File deployArea) throws IOException, SAXException, TikaException {
         LinkContentHandler handler = new LinkContentHandler();
-        Metadata met = new Metadata();
+        Metadata meta = new Metadata();
         DeploymentAreaParser parser = new DeploymentAreaParser();
-        parser.parse(IOUtils.toInputStream(deployArea.getAbsolutePath()),
-                handler,
-                met);
+        parser.parse(IOUtils.toInputStream(deployArea.getAbsolutePath()), handler, meta);
         List<Link> links = handler.getLinks();
         if (links.size() < 2)
             throw new IOException("Must have installed at least 2 versions!");
