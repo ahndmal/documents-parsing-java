@@ -1,6 +1,5 @@
 package com.anma.tika.bk;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.sax.Link;
@@ -18,7 +17,7 @@ public class RollBackEx {
         LinkContentHandler handler = new LinkContentHandler();
         Metadata meta = new Metadata();
         DeploymentAreaParser parser = new DeploymentAreaParser();
-        parser.parse(IOUtils.toInputStream(deployArea.getAbsolutePath()), handler, meta);
+//        parser.parse(IOUtils.toInputStream(deployArea.getAbsolutePath()), handler, meta);
         List<Link> links = handler.getLinks();
         if (links.size() < 2)
             throw new IOException("Must have installed at least 2 versions!");
@@ -27,6 +26,6 @@ public class RollBackEx {
                 return o1.getText().compareTo(o2.getText());
             }
         });
-        this.updateVersion(links.get(links.size() - 2).getText());
+//        this.updateVersion(links.get(links.size() - 2).getText());
     }
 }
