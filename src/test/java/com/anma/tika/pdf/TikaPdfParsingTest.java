@@ -9,8 +9,8 @@ import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.html.HtmlMapper;
 import org.apache.tika.parser.html.IdentityHtmlMapper;
 import org.apache.tika.parser.image.ImageParser;
-import org.apache.tika.parser.pdf.PDFParser;
 import org.apache.tika.parser.pdf.PDFParserConfig;
+import org.apache.tika.sax.ContentHandlerDecorator;
 import org.apache.tika.sax.ToHTMLContentHandler;
 import org.apache.tika.sax.ToXMLContentHandler;
 import org.apache.tika.sax.XHTMLContentHandler;
@@ -18,8 +18,6 @@ import org.apache.tika.sax.xpath.Matcher;
 import org.apache.tika.sax.xpath.MatchingContentHandler;
 import org.apache.tika.sax.xpath.XPathParser;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
 
@@ -28,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -164,12 +163,6 @@ class TikaPdfParsingTest {
                                       Metadata metadata,
                                       boolean outputHtml) throws IOException {
 
-//               LOG.info(">>> outputDir");
-//               LOG.info(outputDir.toString());
-//              /tmp/files//tmp/files/Site_FS.pdf/images
-//              /tmp/files/Site_FS.pdf/images
-
-//  Path outputPath = new File(outputDir.toString() + "/" + metadata.get(Metadata.RESOURCE_NAME_KEY)).toPath();
                 Path outputPath = Path.of(imagesDir + "/" + metadata.get("resourceName"));
 //                Files.deleteIfExists(outputPath);
                 Files.copy(stream, outputPath);
@@ -203,28 +196,75 @@ class TikaPdfParsingTest {
                 .replaceAll("</div>", "");
 //                .replaceAll("<img.+>", ""); //todo: replace IMG with attachment
 
+//        Stream<Path> imagesStream = Files.list(imagesDir);
 
-        // upload images from 'outputDir' folder
-        Stream<Path> imagesStream = Files.list(imagesDir);
-
-        /*
-        for (CreatedAttachResp resp : uploadedImages) {
-            Page attach = resp.results.get(0);
-
-            // todo
     /*
     <img src="embedded:image1.png" alt="image1.png" />
     <img src="embedded:image2.png" alt="image2.png" />
      */
 
-//    xhtmlContents = xhtmlContents.replace("<img src=\"embedded:" + attach.title + "\".+/>",
-//    xhtmlContents = xhtmlContents.replace(
-//    "<img src=\"embedded:" + attach.title + "\" alt=\"" + attach.title + "\" />",
-//    """
-//       <ac:image ac:align="center" ac:layout="center" ac:original-height="600" ac:original-width="600">
-//           <ri:attachment ri:filename="%s" ri:version-at-save="2" />
-//       </ac:image>
-//    """.formatted(attach.title));
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> xhtmlContents");
+        System.out.println(xhtmlContents);
+
+    }
+
+    @Test
+    void parseWithContextMetaImagesDecorate() throws IOException {
+        String xhtmlContents = "";
+        final List<String> chunks = new ArrayList<>();
+        chunks.add("");
+        ContentHandlerDecorator handler = new ContentHandlerDecorator() {
+            @Override
+            public void characters(char[] ch, int start, int length) throws SAXException {
+                String lastChunk = chunks.get(chunks.size() - 1);
+                String thisStr = new String(ch, start, length);
+
+                if (lastChunk.length() + length > 1000) {
+                    chunks.add(thisStr);
+                } else {
+                    chunks.set(chunks.size() - 1, lastChunk + thisStr);
+                }
+            }
+        };
+        Metadata metadata = new Metadata();
+        ParseContext context = new ParseContext();
+
+        EmbeddedDocumentExtractor ede = new EmbeddedDocumentExtractor() {
+            @Override
+            public boolean shouldParseEmbedded(Metadata metadata) {
+                return true;
+            }
+
+            @Override
+            public void parseEmbedded(InputStream stream,
+                                      ContentHandler handler,
+                                      Metadata metadata,
+                                      boolean outputHtml) throws IOException {
+
+
+            }
+        };
+
+        // config
+        PDFParserConfig pdfConfig = new PDFParserConfig();
+        pdfConfig.setExtractInlineImages(true);
+        pdfConfig.setExtractUniqueInlineImagesOnly(true);
+//        pdfConfig.setExtractMarkedContent(true);
+
+        context.set(PDFParserConfig.class, pdfConfig);
+        context.set(EmbeddedDocumentExtractor.class, ede);
+        context.set(AutoDetectParser.class, parser);
+
+        // parse
+        try (InputStream stream = new FileInputStream(PDF_FILE)) {
+            parser.parse(stream, handler, metadata, context);
+            xhtmlContents = handler.toString();
+        } catch (IOException e) {
+            System.out.println(">> IO exception: " + e.getMessage());
+        } catch (SAXException | TikaException e) {
+            System.out.println(">> Error parsing the PDF: " + e.getMessage());
+            e.printStackTrace();
+        }
 
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> xhtmlContents");
         System.out.println(xhtmlContents);
