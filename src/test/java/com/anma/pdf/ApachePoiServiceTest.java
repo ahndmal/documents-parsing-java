@@ -15,7 +15,7 @@ class ApachePoiServiceTest {
     }
 
     @Test
-    void main() {
+    void parsePDFTest() {
         //        pdfToHTML(PDF_PATH);
 //        htmlToPDF("HTML_FILE");
 //        pdFtoText(PDF_PATH);

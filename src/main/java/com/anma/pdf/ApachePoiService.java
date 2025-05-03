@@ -22,14 +22,14 @@ import java.net.URL;
 
 public interface ApachePoiService {
 
-    void pdfToHTML(String filename) throws IOException, ParserConfigurationException;
+    void pdfToHTML(String filename, String to) throws IOException, ParserConfigurationException;
 
-    void htmlToPDF(String filename) throws IOException, DocumentException;
+    void htmlToPDF(String filename, String to) throws IOException, DocumentException;
 
     void generateImageFromPDF(String filename, String extension) throws IOException;
 
     void generatePDFFromImage(String filename, String extension) throws IOException, DocumentException;
 
-    void pdFtoText(String filename) throws IOException;
+    void pdFtoText(String filename, String to) throws IOException;
 
 }
