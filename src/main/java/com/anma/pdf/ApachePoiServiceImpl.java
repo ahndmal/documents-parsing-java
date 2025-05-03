@@ -20,19 +20,10 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 
-public class PDFMain {
-    private static final String PDF_PATH = "/home/andrii/Documents/pdf/microbiology-guide-to-interpreting-mic-nl.pdf";
-    private static final String HTML_FILE = "";
+public class ApachePoiServiceImpl implements ApachePoiService {
 
-    public static void main(String[] args) throws IOException, ParserConfigurationException, DocumentException {
-
-//        pdfToHTML(PDF_PATH);
-//        htmlToPDF("HTML_FILE");
-        pdFtoText(PDF_PATH);
-
-    }
-
-    private static void pdfToHTML(String filename) throws IOException, ParserConfigurationException {
+    @Override
+    public void pdfToHTML(String filename) throws IOException, ParserConfigurationException {
         PDDocument pdf = PDDocument.load(new File(filename));
         Writer output = new PrintWriter("E:\\programming\\java\\projects\\documents-parsing\\src\\resources\\pdf\\out\\from_pdf.html", "utf-8");
         new PDFDomTree().writeText(pdf, output);
@@ -40,7 +31,8 @@ public class PDFMain {
         output.close();
     }
 
-    private static void htmlToPDF(String filename) throws IOException, DocumentException {
+    @Override
+    public void htmlToPDF(String filename) throws IOException, DocumentException {
         Document document = new Document();
 
         PdfWriter writer = PdfWriter.getInstance(
@@ -52,7 +44,8 @@ public class PDFMain {
         document.close();
     }
 
-    private static void generateImageFromPDF(String filename, String extension) throws IOException {
+    @Override
+    public void generateImageFromPDF(String filename, String extension) throws IOException {
         PDDocument document = PDDocument.load(new File(filename));
         PDFRenderer pdfRenderer = new PDFRenderer(document);
         for (int page = 0; page < document.getNumberOfPages(); ++page) {
@@ -64,7 +57,8 @@ public class PDFMain {
         document.close();
     }
 
-    private static void generatePDFFromImage(String filename, String extension) throws IOException, DocumentException {
+    @Override
+    public void generatePDFFromImage(String filename, String extension) throws IOException, DocumentException {
         Document document = new Document();
         String input = filename + "." + extension;
         String output = "src/output/" + extension + ".pdf";
@@ -78,7 +72,8 @@ public class PDFMain {
         writer.close();
     }
 
-    private static void pdFtoText(String filename) throws IOException {
+    @Override
+    public void pdFtoText(String filename) throws IOException {
         File file = new File(filename);
         String parsedText;
 
@@ -95,6 +90,4 @@ public class PDFMain {
         pw.close();
 
     }
-
-
 }
