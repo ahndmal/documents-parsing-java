@@ -210,9 +210,13 @@ class TikaPdfParsingTest {
     @Test
     void parseWithContextMetaImagesDecorate() throws IOException {
         String xhtmlContents = "";
+
         final List<String> chunks = new ArrayList<>();
+
         chunks.add("");
-        ContentHandlerDecorator handler = new ContentHandlerDecorator() {
+
+        ContentHandlerDecorator handler = new ContentHandlerDecorator()
+        {
             @Override
             public void characters(char[] ch, int start, int length) throws SAXException {
                 String lastChunk = chunks.get(chunks.size() - 1);
@@ -225,6 +229,9 @@ class TikaPdfParsingTest {
                 }
             }
         };
+
+        AutoDetectParser parser = new AutoDetectParser();
+        ContentHandler handler2 = new ToXMLContentHandler();
         Metadata metadata = new Metadata();
         ParseContext context = new ParseContext();
 
@@ -252,7 +259,7 @@ class TikaPdfParsingTest {
 
         context.set(PDFParserConfig.class, pdfConfig);
         context.set(EmbeddedDocumentExtractor.class, ede);
-        context.set(AutoDetectParser.class, parser);
+//        context.set(AutoDetectParser.class, parser);
 
         // parse
         try (InputStream stream = new FileInputStream(PDF_FILE)) {

@@ -3,7 +3,7 @@ package com.anma.tika;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
-import org.apache.tika.parser.html.HtmlParser;
+//import org.apache.tika.parser.html.HtmlParser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
 
@@ -22,8 +22,8 @@ public class TikaHTML {
         ParseContext context = new ParseContext();
 
         //Html parser
-        HtmlParser htmlparser = new HtmlParser();
-        htmlparser.parse(inputstream, handler, metadata, context);
+//        HtmlParser htmlparser = new HtmlParser();
+//        htmlparser.parse(inputstream, handler, metadata, context);
 
         System.out.println("Contents of the document:" + handler.toString());
         System.out.println("Metadata of the document:");

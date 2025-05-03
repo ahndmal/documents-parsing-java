@@ -1,37 +1,53 @@
 package com.anma.tika;
 
+import org.apache.tika.exception.TikaException;
+import org.apache.tika.language.detect.LanguageDetector;
+import org.apache.tika.language.detect.LanguageHandler;
+import org.apache.tika.language.detect.LanguageResult;
+import org.apache.tika.language.detect.LanguageWriter;
 import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.AutoDetectParser;
 import org.apache.tika.parser.ParseContext;
+import org.xml.sax.SAXException;
 
-import org.apache.tika.exception.TikaException;
-//import org.apache.tika.language.LanguageIdentifier;
-//import org.apache.tika.language.ProfilingHandler;
-import org.apache.tika.metadata.Metadata;
-import org.apache.tika.parser.DelegatingParser;
-import org.apache.tika.parser.ParseContext;
-import org.apache.tika.sax.TeeContentHandler;
+import java.io.IOException;
 
 public class LanguagesIdentify {
-    void identify() {
-//        LanguageProfile profile = new LanguageProfile(
-//                "Alla människor är födda fria och" + " lika i värde och rättigheter.");
+
+    public static void identify() throws IOException, TikaException, SAXException {
+
+        String text = "Alla människor är födda fria och" + " lika i värde och rättigheter.";
+
+        LanguageDetector.getLanguageDetectors().forEach(System.out::println);
+
+        LanguageDetector detector = LanguageDetector.getDefaultLanguageDetector();
+
+        detector.addText(text);
+
 //        LanguageIdentifier identifier = new LanguageIdentifier(profile);
-//        System.out.println(identifier.getLanguage());
-//
-//        ProfilingWriter writer = new ProfilingWriter();
-//        writer.append("Minden emberi lény");
-//        writer.append(" szabadon születik és");
-//        writer.append(" egyenl? méltósága és");
-//        writer.append(" joga van.");
-//        LanguageIdentifier identifier =
-//                writer.getLanguage();
-//        System.out.println(identifier.getLanguage());
-//
-//
+
+        System.out.println(detector);
+
+        LanguageWriter writer = new LanguageWriter(detector);
+
+        writer.append("Minden emberi lény");
+        writer.append(" szabadon születik és");
+        writer.append(" egyenl? méltósága és");
+        writer.append(" joga van.");
+
+        LanguageResult writerLanguage = writer.getLanguage();
+
+        System.out.println(writerLanguage.getLanguage());
+
+
+        LanguageHandler languageHandler = new LanguageHandler(writer);
+
 //        ProfilingHandler handler = new ProfilingHandler();
-//        new AutoDetectParser().parse(System.in, handler, new Metadata(), new ParseContext());
-//        LanguageIdentifier identifier = handler.getLanguage();
-//        System.out.println(identifier.getLanguage());
+
+        new AutoDetectParser().parse(System.in, languageHandler, new Metadata(), new ParseContext());
+
+        LanguageResult handlerLanguage = languageHandler.getLanguage();
+
+        System.out.println(handlerLanguage.getLanguage());
     }
 }

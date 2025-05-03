@@ -52,7 +52,7 @@ public class ApachePoiServiceImpl implements ApachePoiService {
             BufferedImage bim = pdfRenderer.renderImageWithDPI(
                     page, 300, ImageType.RGB);
             ImageIOUtil.writeImage(
-                    bim, String.format("src/output/pdf-%d.%s", page + 1, extension), 300);
+                    bim, String.format("src/main/resources/pdf-%d.%s", page + 1, extension), 300);
         }
         document.close();
     }

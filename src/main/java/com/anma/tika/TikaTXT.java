@@ -7,7 +7,6 @@ import org.apache.tika.parser.txt.TXTParser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 

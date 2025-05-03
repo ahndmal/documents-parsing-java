@@ -6,7 +6,7 @@ import org.apache.tika.mime.MediaType;
 import org.apache.tika.parser.CompositeParser;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
-import org.apache.tika.parser.html.HtmlParser;
+//import org.apache.tika.parser.html.HtmlParser;
 import org.apache.tika.parser.txt.TXTParser;
 import org.apache.tika.parser.xml.XMLParser;
 import org.apache.tika.sax.ToHTMLContentHandler;
@@ -27,7 +27,7 @@ class CompositeParsintTikaTest {
     @Test
     void compositeParsing() throws IOException, TikaException, SAXException {
         Map<MediaType, Parser> parsersByType = new HashMap<MediaType, Parser>();
-        parsersByType.put(MediaType.parse("text/html"), new HtmlParser());
+//        parsersByType.put(MediaType.parse("text/html"), new HtmlParser());
         parsersByType.put(MediaType.parse("application/xml"), new XMLParser());
 
         CompositeParser parser = new CompositeParser();
