@@ -5,8 +5,9 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.io.RandomAccessFile;
+import org.apache.pdfbox.io.RandomAccessReadBufferedFile;
 import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.ImageType;
@@ -25,11 +26,13 @@ public class ApachePoiServiceImpl implements ApachePoiService {
 
     @Override
     public void pdfToHTML(String filename, String to) throws IOException, ParserConfigurationException {
-        PDDocument pdf = PDDocument.load(new File(filename));
-        Writer output = new PrintWriter(to, StandardCharsets.UTF_8);
-        new PDFDomTree().writeText(pdf, output);
+//        PDDocument pdf = PDDocument.load(new File(filename));
+        try (PDDocument document = Loader.loadPDF(new RandomAccessReadBufferedFile(filename))) {
+            Writer output = new PrintWriter(to, StandardCharsets.UTF_8);
+            new PDFDomTree().writeText(document, output);
+            output.close();
+        }
 
-        output.close();
     }
 
     @Override
@@ -46,15 +49,17 @@ public class ApachePoiServiceImpl implements ApachePoiService {
 
     @Override
     public void generateImageFromPDF(String filename, String extension) throws IOException {
-        PDDocument document = PDDocument.load(new File(filename));
-        PDFRenderer pdfRenderer = new PDFRenderer(document);
-        for (int page = 0; page < document.getNumberOfPages(); ++page) {
-            BufferedImage bim = pdfRenderer.renderImageWithDPI(
-                    page, 300, ImageType.RGB);
-            ImageIOUtil.writeImage(
-                    bim, String.format("src/main/resources/pdf-%d.%s", page + 1, extension), 300);
+//        PDDocument document = PDDocument.load(new File(filename));
+        try (PDDocument document = Loader.loadPDF(new RandomAccessReadBufferedFile(filename))) {
+            PDFRenderer pdfRenderer = new PDFRenderer(document);
+            for (int page = 0; page < document.getNumberOfPages(); ++page) {
+                BufferedImage bim = pdfRenderer.renderImageWithDPI(
+                        page, 300, ImageType.RGB);
+                ImageIOUtil.writeImage(
+                        bim, String.format("src/main/resources/pdf-%d.%s", page + 1, extension), 300);
+            }
         }
-        document.close();
+
     }
 
     @Override
@@ -77,10 +82,9 @@ public class ApachePoiServiceImpl implements ApachePoiService {
         File file = new File(filename);
         String parsedText;
 
-        PDFParser parser = new PDFParser(new RandomAccessFile(file, "r"));
-        parser.parse();
+        PDFParser parser = new PDFParser(new RandomAccessReadBufferedFile(file));
 
-        COSDocument cosDoc = parser.getDocument();
+        COSDocument cosDoc = parser.parse().getDocument();
         PDFTextStripper pdfStripper = new PDFTextStripper();
         PDDocument pdDoc = new PDDocument(cosDoc);
         parsedText = pdfStripper.getText(pdDoc);

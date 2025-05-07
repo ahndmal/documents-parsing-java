@@ -1,7 +1,10 @@
 package com.anma.pdf.pdfbox;
 
+import org.apache.pdfbox.Loader;
+import org.apache.pdfbox.io.RandomAccessReadBufferedFile;
 import org.apache.pdfbox.pdfparser.PDFStreamParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDStream;
 
 import java.io.IOException;
@@ -10,9 +13,19 @@ import java.nio.file.Path;
 import java.util.List;
 
 public class PdfBoxService {
-    public static void parse () throws IOException {
 
-        PDDocument pdDocument = PDDocument.load(Files.newInputStream(Path.of("")));
+    public static void parseLoader(String file) throws IOException {
+        try (PDDocument document = Loader.loadPDF(new RandomAccessReadBufferedFile(file))) {
+            System.out.println(document.getNumberOfPages());
+            for (PDPage page : document.getPages()) {
+                System.out.println(page.toString());
+            }
+        }
+    }
+
+    public static void parseV2 () throws IOException {
+
+       /* PDDocument pdDocument = PDDocument.load(Files.newInputStream(Path.of("")));
 
         PDStream contents = new PDStream(pdDocument);
 //        PDStream contents = pdDocument.getPage(0).getContents();
@@ -21,12 +34,12 @@ public class PdfBoxService {
 
         parser.parse();
 
-        List<Object> tokens = parser.getTokens();
+        List<Object> tokens = parser.getTokens();*/
     }
 
-    public static void parse (String path) throws IOException {
+    public static void parseV2(String path) throws IOException {
         PDFStreamParser parser = new PDFStreamParser(new byte[] {});
         parser.parse();
-        List<Object> tokens = parser.getTokens();
+//        List<Object> tokens = parser.getTokens();
     }
 }
