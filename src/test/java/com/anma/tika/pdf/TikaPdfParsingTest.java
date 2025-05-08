@@ -32,7 +32,17 @@ import java.util.List;
 class TikaPdfParsingTest {
 
     //    private static final String PDF_FILE = "/home/andrii/Documents/pdf/Site_FS.pdf";
-    private static final String PDF_FILE = "/home/andrii/bht-pdf-files/TEST-Trello app-250923-114754.pdf";
+    private static final String PDF_FILE = "/home/andrii/bht-pdf-files/files/Raine and Horne Business Sales - Office365 - 2025-01-22 03.57.pdf";
+
+
+    @Test
+    void parsePdfWithImages() {
+        try {
+            TikaPdfParsing.extractImages(PDF_FILE);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void ExtractImages() {

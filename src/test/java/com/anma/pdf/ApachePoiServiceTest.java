@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class ApachePoiServiceTest {
 
 //    private static final String PDF_PATH = "/home/andrii/bht-pdf-files/files/LokiTime_Agreement_PDF.pdf";
-    private static final String PDF_PATH = "/home/andrii/bht-pdf-files/files/Raine and Horne Business Sales - Office365 - 2025-01-22 03.57.pdf";
+    private static final String PDF_PATH = "/home/andrii/bht-pdf-files/files/invoicesample.pdf";
 
-    private static final String HTML_FILE = "./result.html";
-    private static final String TEXT_FILE = "./result.txt";
+    private static final String HTML_FILE = "./src/resources/html/result.html";
+    private static final String TEXT_FILE = "./src/resources/txt/result.txt";
 
     private final ApachePoiService apachePoiService = new ApachePoiServiceImpl();
 
