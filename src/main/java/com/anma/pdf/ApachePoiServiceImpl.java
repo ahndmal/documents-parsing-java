@@ -5,6 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import io.github.se_be.pdf2dom.PDFDomTree;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.cos.COSDocument;
 import org.apache.pdfbox.io.RandomAccessReadBufferedFile;
@@ -14,7 +15,6 @@ import org.apache.pdfbox.rendering.ImageType;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.tools.imageio.ImageIOUtil;
-import org.fit.pdfdom.PDFDomTree;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.awt.image.BufferedImage;
@@ -92,6 +92,5 @@ public class ApachePoiServiceImpl implements ApachePoiService {
         PrintWriter pw = new PrintWriter(to);
         pw.print(parsedText);
         pw.close();
-
     }
 }

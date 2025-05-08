@@ -10,8 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ApachePoiServiceTest {
 
-    private static final String PDF_PATH = "/home/andrii/files/LokiTime_Agreement_PDF.pdf";
-    private static final String HTML_FILE = "";
+//    private static final String PDF_PATH = "/home/andrii/bht-pdf-files/files/LokiTime_Agreement_PDF.pdf";
+    private static final String PDF_PATH = "/home/andrii/bht-pdf-files/files/Raine and Horne Business Sales - Office365 - 2025-01-22 03.57.pdf";
+
+    private static final String HTML_FILE = "./result.html";
+    private static final String TEXT_FILE = "./result.txt";
 
     private final ApachePoiService apachePoiService = new ApachePoiServiceImpl();
 
@@ -20,13 +23,24 @@ class ApachePoiServiceTest {
     }
 
     @Test
-    void parsePDFTest() {
-
+    void parsePDFToHTMLTest() {
         try {
 
-            apachePoiService.pdfToHTML(PDF_PATH, "./result.html");
+            apachePoiService.pdfToHTML(PDF_PATH, HTML_FILE);
 
         } catch (IOException | ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Test
+    void parsePDFToTextTest() {
+        try {
+
+            apachePoiService.pdFtoText(PDF_PATH, TEXT_FILE);
+
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 

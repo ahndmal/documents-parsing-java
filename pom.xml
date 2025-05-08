@@ -80,10 +80,16 @@
             <artifactId>pdfbox-tools</artifactId>
             <version>3.0.0-RC1</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.sf.cssbox</groupId>-->
+<!--            <artifactId>pdf2dom</artifactId>-->
+<!--            <version>2.0.3</version>-->
+<!--        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/io.github.se-be/pdf2dom -->
         <dependency>
-            <groupId>net.sf.cssbox</groupId>
+            <groupId>io.github.se-be</groupId>
             <artifactId>pdf2dom</artifactId>
-            <version>2.0.3</version>
+            <version>3.0.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
         <dependency>
@@ -126,7 +132,7 @@
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.15.3</version>
+            <version>1.18.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.tika/tika-parser-html-module -->
         <dependency>
@@ -148,7 +154,13 @@
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox-io</artifactId>
-            <version>3.0.4</version>
+            <version>3.0.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>fontbox</artifactId>
+            <version>3.0.5</version>
         </dependency>
     </dependencies>
 

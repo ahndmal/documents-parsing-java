@@ -24,7 +24,7 @@ public class TikaPdfParsing {
     private static final Logger LOG = LoggerFactory.getLogger(TikaPdfParsing.class);
 
     public static final String PDF = ".pdf";
-    public static final String IMAGES = "/images";
+    public static final String IMAGES = "./src/resources/img";
 
     public static String extractImages(String pdfFile) throws IOException {
 
@@ -42,7 +42,7 @@ public class TikaPdfParsing {
             Files.createDirectories(imagesDir);
 
         } catch (IOException e) {
-            LOG.error("[BHT DOCS] Error when creating output dir: " + imagesDir);
+            LOG.error("[TIKA] Error when creating output dir: " + imagesDir);
             LOG.error(e.getMessage());
         }
 
@@ -89,21 +89,18 @@ public class TikaPdfParsing {
             parser.parse(stream, handler, metadata, context);
             xhtmlContents = handler.toString();
         } catch (IOException e) {
-            LOG.error("[BHT DOCS] IO exception: " + e.getMessage());
+            LOG.error("[TIKA] IO exception: " + e.getMessage());
         } catch (SAXException | TikaException e) {
-            LOG.error("[BHT DOCS] Error parsing the PDF: " + e.getMessage());
+            LOG.error("[TIKA] Error parsing the PDF: " + e.getMessage());
         }
-        String pageTitle = pdfFile;
-
         // update page body with images as atatchments
         xhtmlContents = xhtmlContents
                 .replaceAll("<div .+>", "")
                 .replaceAll("</div>", "");
 //                .replaceAll("<img.+>", ""); //todo: replace IMG with attachment
 
-
         // upload images from 'outputDir' folder
-        Stream<Path> imagesStream = Files.list(imagesDir);
+//        Stream<Path> imagesStream = Files.list(imagesDir);
 
         return "";
     }
