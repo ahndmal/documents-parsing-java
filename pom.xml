@@ -11,6 +11,11 @@
     <properties>
         <tika.version>3.1.0</tika.version>
         <poi.version>5.2.2</poi.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <pdfservices.sdk.version>4.3.0</pdfservices.sdk.version>
+        <pdfservices.sdk.samples.version>4.3.0</pdfservices.sdk.samples.version>
     </properties>
 
     <dependencies>
@@ -162,6 +167,16 @@
             <artifactId>fontbox</artifactId>
             <version>3.0.5</version>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.documentservices</groupId>
+            <artifactId>pdfservices-sdk</artifactId>
+            <version>${pdfservices.sdk.version}</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.logging.log4j</groupId>-->
+<!--            <artifactId>log4j-slf4j2-impl</artifactId>-->
+<!--            <version>2.22.0</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -169,10 +184,23 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
                 <configuration>
-                    <source>24</source>
-                    <target>24</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

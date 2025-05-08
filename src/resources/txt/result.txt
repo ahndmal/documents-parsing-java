@@ -1,14 +1,17 @@
-Office365
-Type:
-Office365
-Domain(s):
-rhc.com.au
-Location:
-Cloud - Office 365
-Notes:
-Adminstered by Raine and Horne Corporate see IT Glue for contact details:
-https://comwire-it-pty-ltd.itglue.com/DOC-1011847-383688
-Security Access:
-All users with access to Raine and Horne Business Sales
-Flexible Assets 1
-Comwire IT Pty Ltd | Raine and Horne Business Sales | Jan 22, 2025 - 03:57am
+Denny Gunawan
+221 Queen St
+Melbourne VIC 3000
+$39.60123 Somewhere St, Melbourne VIC 3000
+(03) 1234 5678
+Invoice Number: #20130304
+Organic Items Price/kg Quantity(kg) Subtotal
+Apple $5.00 1 $5.00
+Orange $1.99 2 $3.98
+Watermelon $1.69 3 $5.07
+Mango $9.56 2 $19.12
+Peach $2.99 1 $2.99
+Subtotal $36.00
+GST (10%) $3.60
+Total $39.60* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales
+dapibus fermentum. Nunc adipiscing, magna sed scelerisque cursus, erat
+lectus dapibus urna, sed facilisis leo dui et ipsum.

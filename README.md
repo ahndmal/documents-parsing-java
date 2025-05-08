@@ -13,7 +13,7 @@ For basic (PDF complex) related stuff.
 
 ### Tika
 
-![img.png](src/resources/img.png)
+![img.png](src/resources/img/img.png)
 
 C-like mime type:
 ```xml
@@ -43,7 +43,7 @@ java -jar tika-app-1.0.jar http://www.example.com/document.doc
 ```
 
 #### Magic bytes
-![img_1.png](src/resources/img_1.png)
+![img_1.png](src/resources/img/img_1.png)
 
-![img_2.png](src/resources/img_2.png)
+![img_2.png](src/resources/img/img_2.png)
 

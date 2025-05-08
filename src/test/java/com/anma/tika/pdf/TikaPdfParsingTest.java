@@ -4,11 +4,15 @@ import org.apache.tika.exception.TikaException;
 import org.apache.tika.extractor.EmbeddedDocumentExtractor;
 import org.apache.tika.io.TikaInputStream;
 import org.apache.tika.metadata.Metadata;
+import org.apache.tika.mime.MediaType;
+import org.apache.tika.mime.MediaTypeRegistry;
 import org.apache.tika.parser.AutoDetectParser;
+import org.apache.tika.parser.CompositeParser;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.html.HtmlMapper;
 import org.apache.tika.parser.html.IdentityHtmlMapper;
 import org.apache.tika.parser.image.ImageParser;
+import org.apache.tika.parser.pdf.PDFParser;
 import org.apache.tika.parser.pdf.PDFParserConfig;
 import org.apache.tika.sax.ContentHandlerDecorator;
 import org.apache.tika.sax.ToHTMLContentHandler;
@@ -33,12 +37,13 @@ class TikaPdfParsingTest {
 
     //    private static final String PDF_FILE = "/home/andrii/Documents/pdf/Site_FS.pdf";
     private static final String PDF_FILE = "/home/andrii/bht-pdf-files/files/Raine and Horne Business Sales - Office365 - 2025-01-22 03.57.pdf";
+    private static final String PDF_FILE_2 = "/home/andrii/bht-pdf-files/files/invoicesample.pdf";
 
 
     @Test
     void parsePdfWithImages() {
         try {
-            TikaPdfParsing.extractImages(PDF_FILE);
+            TikaPdfParsing.extractImages(PDF_FILE_2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,7 +89,8 @@ class TikaPdfParsingTest {
         context.set(AutoDetectParser.class, parser);
 
         try (InputStream stream = new FileInputStream(PDF_FILE)) {
-            parser.parse(stream, handler, metadata, context);
+//            parser.parse(stream, handler, metadata, context);
+            parser.parse(stream, handler, metadata);
             xhtmlContents = handler.toString();
         } catch (IOException | SAXException | TikaException e) {
             e.printStackTrace();
@@ -95,10 +101,20 @@ class TikaPdfParsingTest {
 
     @Test
     void parsePdf() throws IOException, TikaException, SAXException {
-//        PDFParser pdfParser = new PDFParser();
-        AutoDetectParser parser = new AutoDetectParser();
+        PDFParser pdfParser = new PDFParser();
 
-        var is = TikaInputStream.get(Path.of(PDF_FILE));
+        // auto detection of parser
+//        AutoDetectParser parser = new AutoDetectParser();
+
+       /*
+       // Media parser
+
+        MediaTypeRegistry registry = new MediaTypeRegistry();
+        registry.addType(MediaType.TEXT_PLAIN);
+        CompositeParser parser = new CompositeParser(registry);
+       */
+
+        var tis = TikaInputStream.get(Path.of(PDF_FILE_2));
 
 //        BodyContentHandler handler = new BodyContentHandler();
         var handler = new ToHTMLContentHandler();
@@ -108,7 +124,7 @@ class TikaPdfParsingTest {
         ParseContext context = new ParseContext();
         context.set(HtmlMapper.class, new IdentityHtmlMapper());
 
-        parser.parse(is, xhtmlContentHandler, new Metadata(), context);
+        pdfParser.parse(tis, xhtmlContentHandler, new Metadata(), context);
 
         System.out.println(xhtmlContentHandler);
     }
@@ -225,8 +241,7 @@ class TikaPdfParsingTest {
 
         chunks.add("");
 
-        ContentHandlerDecorator handler = new ContentHandlerDecorator()
-        {
+        ContentHandlerDecorator handler = new ContentHandlerDecorator() {
             @Override
             public void characters(char[] ch, int start, int length) throws SAXException {
                 String lastChunk = chunks.get(chunks.size() - 1);

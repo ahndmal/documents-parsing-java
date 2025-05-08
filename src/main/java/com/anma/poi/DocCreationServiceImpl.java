@@ -50,7 +50,7 @@ public class DocCreationServiceImpl implements DocCreationService {
             sheet.autoSizeColumn(i);
         }
 
-        FileOutputStream fileOut = new FileOutputStream("Table1.xlsx");
+        FileOutputStream fileOut = new FileOutputStream("excel/Table1.xlsx");
         workbook.write(fileOut);
 
         fileOut.close();
